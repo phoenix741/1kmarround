@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">1km Arround</string>
+
+    <string name="startLocationLabel">Start location</string>
+    <string name="currentLocationLabel">Current location</string>
+
+    <string name="button_go">Go</string>
+    <string name="button_stop">Stop</string>
+
+    <string name="notification_title">1km Arround</string>
+    <string name="notification_message">%1$d meters from start</string>
+
+    <string name="channel_name">1km Arround is running</string>
+    <string name="channel_description">Sent when the application is running to show the distance from start.</string>
+</resources>

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="efaf6d37-ad8b-408b-a167-fb47e2b6544c"
+   data-name="Layer 1"
+   width="1142.0458"
+   height="1142.0458"
+   viewBox="0 0 1142.0457 1142.0457"
+   version="1.1"
+   sodipodi:docname="for_icon.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata
+     id="metadata70">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Map dark</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1147"
+     id="namedview68"
+     showgrid="false"
+     inkscape:zoom="0.24588749"
+     inkscape:cx="119.59691"
+     inkscape:cy="479.89429"
+     inkscape:window-x="0"
+     inkscape:window-y="30"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="efaf6d37-ad8b-408b-a167-fb47e2b6544c"
+     inkscape:pagecheckerboard="true" />
+  <defs
+     id="defs19">
+    <linearGradient
+       id="eaeac4a1-6091-43b3-af38-ae8114f9a62f"
+       x1="535.45074"
+       y1="779.24414"
+       x2="535.45074"
+       y2="104.90687"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="gray"
+         stop-opacity="0.25"
+         id="stop2" />
+      <stop
+         offset="0.53514"
+         stop-color="gray"
+         stop-opacity="0.12"
+         id="stop4" />
+      <stop
+         offset="1"
+         stop-color="gray"
+         stop-opacity="0.1"
+         id="stop6" />
+    </linearGradient>
+    <clipPath
+       id="b609a8ad-8ad7-4296-9cf1-6f9923717ce3"
+       transform="translate(-64.54927 -7.92449)">
+      <polygon
+         points="473.645,758.825 220.644,734.556 220.644,139.96 472.596,158.162 729.989,139.96 981.786,174.341 981.786,641.525 889.286,734.556 724.703,734.556 "
+         id="polygon9"
+         style="fill:#6c63ff" />
+    </clipPath>
+    <linearGradient
+       id="eaa4df2b-8460-421b-8c86-0d729e8c7ac3"
+       x1="873.18634"
+       y1="742.81097"
+       x2="873.18634"
+       y2="620.07623"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-opacity="0.12"
+         id="stop12" />
+      <stop
+         offset="0.55135"
+         stop-opacity="0.09"
+         id="stop14" />
+      <stop
+         offset="1"
+         stop-opacity="0.02"
+         id="stop16" />
+    </linearGradient>
+  </defs>
+  <title
+     id="title21">Map dark</title>
+  <polygon
+     points="675.029,104.907 947.951,142.37 940.945,639.909 829.064,752.8 669.299,752.8 397.178,779.244 122.951,752.8 122.951,104.907 396.041,124.74 "
+     id="polygon23"
+     style="fill:url(#eaeac4a1-6091-43b3-af38-ae8114f9a62f)"
+     transform="translate(40.669008,141.5882)" />
+  <polygon
+     points="673.19,113.412 940.142,149.863 933.289,633.955 823.856,743.794 667.586,743.794 401.418,769.524 133.19,743.794 133.19,113.412 400.306,132.709 "
+     id="polygon25"
+     style="fill:#ffffff"
+     transform="translate(40.669008,141.5882)" />
+  <polygon
+     points="665.44,132.035 917.237,166.417 917.237,633.6 824.736,726.631 660.154,726.631 409.096,750.901 156.095,726.631 156.095,132.035 408.047,150.237 "
+     id="polygon27"
+     style="fill:#6c63ff"
+     transform="translate(40.669008,141.5882)" />
+  <g
+     clip-path="url(#b609a8ad-8ad7-4296-9cf1-6f9923717ce3)"
+     id="g31"
+     transform="translate(40.669008,141.5882)">
+    <polygon
+       points="0,54.646 572.409,371.634 441.726,805.828 491.686,825.64 546.71,642.823 1119.079,959.789 1142.046,905.143 564.089,585.083 710.891,97.332 660.931,77.52 589.788,313.893 22.967,0 "
+       id="polygon29"
+       style="fill:#ffffff" />
+  </g>
+  <polygon
+     points="813.083,742.811 815.019,620.076 933.289,624.847 "
+     id="polygon33"
+     style="fill:url(#eaa4df2b-8460-421b-8c86-0d729e8c7ac3)"
+     transform="translate(40.669008,141.5882)" />
+  <polygon
+     points="518.844,549.605 542.951,599.576 518.951,624.576 156.095,452.489 156.095,388.993 "
+     id="polygon35"
+     style="fill:#ffffff"
+     transform="translate(40.669008,141.5882)" />
+  <polygon
+     points="823.856,742.811 825.618,629.555 933.289,633.957 "
+     id="polygon37"
+     style="fill:#ffffff"
+     transform="translate(40.669008,141.5882)" />
+  <polygon
+     points="860.519,158.672 690.951,673.576 648.951,647.576 800.309,150.451 "
+     id="polygon39"
+     style="fill:#ffffff"
+     transform="translate(40.669008,141.5882)" />
+  <polyline
+     points="408.047 750.901 659.999 726.631 659.999 132.035 408.047 150.237"
+     id="polyline41"
+     style="opacity:0.1"
+     transform="translate(40.669008,141.5882)" />
+  <path
+     d="m 679.46774,490.02415 c 0,48.0293 -86.96475,184.04167 -86.96475,184.04167 0,0 -86.96474,-136.01237 -86.96474,-184.04167 a 86.96475,86.96475 0 1 1 173.92949,0 z"
+     id="path43"
+     inkscape:connector-curvature="0"
+     style="fill:#ff5252" />
+  <circle
+     cx="592.50305"
+     cy="483.95685"
+     r="26.29167"
+     id="circle45"
+     style="fill:#ffffff" />
+  <polygon
+     points="917.237,486.505 754.951,428.576 784.67,388.993 917.237,423.009 "
+     id="polygon47"
+     style="fill:#ffffff"
+     transform="translate(40.669008,141.5882)" />
+  <polygon
+     points="245.951,742.576 283.951,750.576 334.01,536.866 333.951,506.576 279.434,510.983 "
+     id="polygon49"
+     style="fill:#ffffff"
+     transform="translate(40.669008,141.5882)" />
+  <polygon
+     points="269.604,442.076 338.951,208.576 278.084,208.643 240.514,426.371 "
+     id="polygon51"
+     style="fill:#ffffff"
+     transform="translate(40.669008,141.5882)" />
+  <circle
+     cx="390.61975"
+     cy="307.16373"
+     r="8"
+     id="circle53"
+     style="fill:#ff5252" />
+  <circle
+     cx="294.61975"
+     cy="721.1637"
+     r="8"
+     id="circle55"
+     style="fill:#ff5252" />
+  <circle
+     cx="286.61975"
+     cy="780.1637"
+     r="8"
+     id="circle57"
+     style="fill:#ff5252" />
+  <circle
+     cx="371.61975"
+     cy="766.1637"
+     r="8"
+     id="circle59"
+     style="fill:#ff5252" />
+  <circle
+     cx="234.61975"
+     cy="526.1637"
+     r="8"
+     id="circle61"
+     style="fill:#ff5252" />
+  <circle
+     cx="864.61975"
+     cy="518.1637"
+     r="8"
+     id="circle63"
+     style="fill:#ff5252" />
+  <circle
+     cx="795.61975"
+     cy="796.1637"
+     r="8"
+     id="circle65"
+     style="fill:#ff5252" />
+  <ellipse
+     style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:15;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     id="path880"
+     cx="587.66718"
+     cy="574.71313"
+     rx="307.05099"
+     ry="298.91721" />
+</svg>
