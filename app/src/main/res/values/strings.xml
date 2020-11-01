@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">1KMArroud</string>
+    <string name="button_go">Go</string>
+    <string name="button_stop">Stop</string>
+
+    <string name="notification_title">Calculate distance to Start</string>
+    <string name="notification_message">Calculate ...</string>
+    <string name="ticker_text">Ticker</string>
+
+    <string name="channel_name">Channel Name</string>
+    <string name="channel_description">Channel Description</string>
+</resources>
