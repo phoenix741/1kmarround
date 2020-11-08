@@ -1,6 +1,8 @@
 #!/bin/bash
 INFILE=for_icon.svg
 TDIR=../app/src/main/res/
+inkscape -z -f $INFILE -e ./presentation.png -h 500 -w 1024
+inkscape -z -f $INFILE -e ./big_icon.png -h 512 -w 512
 inkscape -z -f $INFILE -e $TDIR/mipmap-xxxhdpi/ic_launcher.png -h 192 -w 192
 inkscape -z -f $INFILE -e $TDIR/mipmap-xxhdpi/ic_launcher.png -h 144 -w 144
 inkscape -z -f $INFILE -e $TDIR/mipmap-xhdpi/ic_launcher.png -h 96 -w 96
