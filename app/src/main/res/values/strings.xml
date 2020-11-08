@@ -3,6 +3,7 @@
 
     <string name="startLocationLabel">Start location</string>
     <string name="currentLocationLabel">Current location</string>
+    <string name="distanceLabel">%1$d meters</string>
 
     <string name="button_go">Go</string>
     <string name="button_stop">Stop</string>
@@ -12,4 +13,8 @@
 
     <string name="channel_name">1km Arround is running</string>
     <string name="channel_description">Sent when the application is running to show the distance from start.</string>
+
+    <string name="speaker_meters_info">%1$d meters.</string>
+    <string name="speaker_meters_warn">Attention: %1$d meters.</string>
+    <string name="speaker_meters_alert">Alert: %1$d meters. Your are out of the zone.</string>
 </resources>

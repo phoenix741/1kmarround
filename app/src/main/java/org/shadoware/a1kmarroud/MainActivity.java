@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements ArroundLocationMa
     public void updateTextLocation() {
         runOnUiThread(() -> {
             if (this.startLocation != null && this.runLocation != null ) {
-                distanceText.setText("" + ArroundLocationManager.getDistance(startLocation, runLocation) + " meters");
+                distanceText.setText(getString(R.string.distanceLabel, (int)ArroundLocationManager.getDistance(startLocation, runLocation)));
             } else {
                 distanceText.setText("");
             }
@@ -194,7 +194,7 @@ public class MainActivity extends AppCompatActivity implements ArroundLocationMa
         try {
             geocoder = new Geocoder(this, Locale.getDefault());
 
-            addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
+            addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
 
             if (addresses.size() > 0 && addresses.get(0).getMaxAddressLineIndex() >= 0) {
                 return addresses.get(0).getAddressLine(0);

@@ -124,11 +124,6 @@ public class ArroundService extends Service implements TextToSpeech.OnInitListen
     @Override
     public void onInit(int status) {
         if (status == TextToSpeech.SUCCESS) {
-            int result = textToSpeech.setLanguage(Locale.FRANCE);
-            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                Log.e("error", "This Language is not supported");
-            }
-
             speakDistance();
         }
     }
@@ -136,12 +131,16 @@ public class ArroundService extends Service implements TextToSpeech.OnInitListen
     private void speakDistance() {
         int distance = (int)getDistance();
         if (Math.abs(lastDistance - distance) > 100) {
-            String text = "" + distance + " metres.";
+            int stringId;
             if (distance > 1000) {
-                text = "Alert: " + text + " Vous êtes en dehors de la zone.";
+                stringId = R.string.speaker_meters_alert;
             } else if (distance > 900) {
-                text = "Attention: " + text;
+                stringId = R.string.speaker_meters_warn;
+            } else {
+                stringId = R.string.speaker_meters_info;
             }
+
+            String text = getString(stringId, distance);
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);

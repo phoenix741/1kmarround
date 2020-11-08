@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">1km Arround</string>
+    <string name="startLocationLabel">Point de départ</string>
+    <string name="currentLocationLabel">Position en cours</string>
+    <string name="distanceLabel">%1$d metres</string>
+    <string name="button_go">Go</string>
+    <string name="button_stop">Stop</string>
+    <string name="notification_title">1km Arround</string>
+    <string name="notification_message">%1$d metres depuis le début</string>
+    <string name="channel_name">1km Arround est en cours d\'execution</string>
+    <string name="channel_description">Notifie que l\'application est en cours d\'execution.</string>
+    <string name="speaker_meters_info">%1$d metres.</string>
+    <string name="speaker_meters_warn">Attention: %1$d metres.</string>
+    <string name="speaker_meters_alert">Alerte: %1$d metres. Vous êtes en dehors de la zone.</string>
+</resources>
