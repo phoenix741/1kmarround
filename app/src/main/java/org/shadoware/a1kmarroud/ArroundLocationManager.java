@@ -20,17 +20,17 @@ class ArroundLocationManager extends Thread {
 
     private static final int TWO_MINUTES = 1000 * 60 * 2;
 
-    private Context context;
+    private final Context context;
 
     private Location mLocation;
 
-    private List<ArroundLocationManager.ArrroundLocationListener> listener = new ArrayList<>();
+    private final List<ArroundLocationManager.ArrroundLocationListener> listener = new ArrayList<>();
 
     public interface ArrroundLocationListener {
         void updateLocation(Location startLocation);
     }
 
-    private ArroundLocationManager.LocationListener[] mLocationListeners = new ArroundLocationManager.LocationListener[]{
+    private final ArroundLocationManager.LocationListener[] mLocationListeners = new ArroundLocationManager.LocationListener[]{
             new ArroundLocationManager.LocationListener(LocationManager.GPS_PROVIDER),
             new ArroundLocationManager.LocationListener(LocationManager.NETWORK_PROVIDER)
     };
@@ -93,7 +93,7 @@ class ArroundLocationManager extends Thread {
     }
 
     private void callListener(Location location) {
-        for( ArroundLocationManager.ArrroundLocationListener l : listener) {
+        for (ArroundLocationManager.ArrroundLocationListener l : listener) {
             l.updateLocation(location);
         }
     }
@@ -176,13 +176,12 @@ class ArroundLocationManager extends Thread {
             return true;
         } else if (isNewer && !isLessAccurate) {
             return true;
-        } else if (isNewer && !isSignificantlyLessAccurate && isFromSameProvider) {
-            return true;
-        }
-        return false;
+        } else return isNewer && !isSignificantlyLessAccurate && isFromSameProvider;
     }
 
-    /** Checks whether two providers are the same */
+    /**
+     * Checks whether two providers are the same
+     */
     private boolean isSameProvider(String provider1, String provider2) {
         if (provider1 == null) {
             return provider2 == null;

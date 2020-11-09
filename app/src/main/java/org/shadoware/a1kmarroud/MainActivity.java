@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements ArroundLocationMa
         public void onServiceConnected(ComponentName name, IBinder service) {
             Toast.makeText(MainActivity.this, "Service is connected", Toast.LENGTH_LONG).show();
             mBounded = true;
-            ArroundService.ArroundServiceBinder mLocalBinder = (ArroundService.ArroundServiceBinder)service;
+            ArroundService.ArroundServiceBinder mLocalBinder = (ArroundService.ArroundServiceBinder) service;
             mServer = mLocalBinder.getServerInstance();
             mServer.addListener(MainActivity.this);
 
@@ -75,8 +75,8 @@ public class MainActivity extends AppCompatActivity implements ArroundLocationMa
 
     public void updateTextLocation() {
         runOnUiThread(() -> {
-            if (this.startLocation != null && this.runLocation != null ) {
-                distanceText.setText(getString(R.string.distanceLabel, (int)ArroundLocationManager.getDistance(startLocation, runLocation)));
+            if (this.startLocation != null && this.runLocation != null) {
+                distanceText.setText(getString(R.string.distanceLabel, (int) ArroundLocationManager.getDistance(startLocation, runLocation)));
             } else {
                 distanceText.setText("");
             }
@@ -98,9 +98,9 @@ public class MainActivity extends AppCompatActivity implements ArroundLocationMa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       requestPermissionsIfNecessary(new String[] {
-               Manifest.permission.ACCESS_FINE_LOCATION,
-       });
+        requestPermissionsIfNecessary(new String[]{
+                Manifest.permission.ACCESS_FINE_LOCATION,
+        });
 
         locationManager = new ArroundLocationManager(this);
         locationManager.addListener((location) -> {
@@ -187,7 +187,7 @@ public class MainActivity extends AppCompatActivity implements ArroundLocationMa
         }
     }
 
-    String getAddress(Location location) {
+    private String getAddress(Location location) {
         Geocoder geocoder;
         List<Address> addresses;
 

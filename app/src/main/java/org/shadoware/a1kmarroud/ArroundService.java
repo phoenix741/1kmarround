@@ -1,7 +1,6 @@
 package org.shadoware.a1kmarroud;
 
 import android.app.Notification;
-import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -17,7 +16,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class ArroundService extends Service implements TextToSpeech.OnInitListener {
     private static final String TAG = "ArroundService";
@@ -25,7 +23,7 @@ public class ArroundService extends Service implements TextToSpeech.OnInitListen
     private ArroundNotificationManager notificationManager;
     private ArroundLocationManager locationManager;
 
-    private PowerManager.WakeLock wakeLock  = null;
+    private PowerManager.WakeLock wakeLock = null;
 
     private TextToSpeech textToSpeech;
     private float lastDistance = 0;
@@ -33,9 +31,9 @@ public class ArroundService extends Service implements TextToSpeech.OnInitListen
     private Location startLocation;
     private Location runLocation;
 
-    private List<ArroundLocationManager.ArrroundLocationListener> listener = new ArrayList<>();
+    private final List<ArroundLocationManager.ArrroundLocationListener> listener = new ArrayList<>();
 
-    private IBinder mBinder = new ArroundServiceBinder();
+    private final IBinder mBinder = new ArroundServiceBinder();
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -57,7 +55,7 @@ public class ArroundService extends Service implements TextToSpeech.OnInitListen
     }
 
     private void callListener(Location location) {
-        for( ArroundLocationManager.ArrroundLocationListener l : listener) {
+        for (ArroundLocationManager.ArrroundLocationListener l : listener) {
             l.updateLocation(location);
         }
     }
@@ -66,7 +64,7 @@ public class ArroundService extends Service implements TextToSpeech.OnInitListen
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.e(TAG, "onStartCommand");
 
-        PowerManager powerService = (PowerManager)getSystemService(Context.POWER_SERVICE);
+        PowerManager powerService = (PowerManager) getSystemService(Context.POWER_SERVICE);
         wakeLock = powerService.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "ArroundService::lock");
         wakeLock.acquire();
 
@@ -76,7 +74,7 @@ public class ArroundService extends Service implements TextToSpeech.OnInitListen
             this.startLocation = location;
         }
 
-        Notification notification = notificationManager.notifyDistance(0);
+        Notification notification = notificationManager.createNotification(0);
         startForeground(ArroundNotificationManager.ARROUND_ID, notification);
 
         return START_STICKY;
@@ -102,7 +100,7 @@ public class ArroundService extends Service implements TextToSpeech.OnInitListen
         locationManager.addListener(location -> {
             runLocation = location;
             callListener(location);
-            notificationManager.send(getDistance());
+            notificationManager.notifyDistance(getDistance());
             speakDistance();
         });
         locationManager.start();
@@ -129,7 +127,7 @@ public class ArroundService extends Service implements TextToSpeech.OnInitListen
     }
 
     private void speakDistance() {
-        int distance = (int)getDistance();
+        int distance = (int) getDistance();
         if (Math.abs(lastDistance - distance) > 100) {
             int stringId;
             if (distance > 1000) {
@@ -144,12 +142,10 @@ public class ArroundService extends Service implements TextToSpeech.OnInitListen
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
-            }
-            else {
+            } else {
                 textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
             }
 
-            textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
             lastDistance = distance;
         }
     }
@@ -165,8 +161,7 @@ public class ArroundService extends Service implements TextToSpeech.OnInitListen
     public float getDistance() {
         if (startLocation != null && runLocation != null) {
             return ArroundLocationManager.getDistance(startLocation, runLocation);
-        }
-        else {
+        } else {
             return 0;
         }
     }

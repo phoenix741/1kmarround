@@ -9,12 +9,11 @@ import android.content.Intent;
 import android.os.Build;
 
 import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 
 class ArroundNotificationManager {
     private static final String CHANNEL_DEFAULT_IMPORTANCE = "Running";
     public static final int ARROUND_ID = 1;
-    private Context context;
+    private final Context context;
 
     ArroundNotificationManager(Context context) {
         this.context = context;
@@ -36,21 +35,21 @@ class ArroundNotificationManager {
         }
     }
 
-    public Notification notifyDistance(float distance) {
+    public Notification createNotification(float distance) {
         Intent notificationIntent = new Intent(context, MainActivity.class);
         PendingIntent pendingIntent =
                 PendingIntent.getActivity(context, 0, notificationIntent, 0);
 
         return new NotificationCompat.Builder(context, CHANNEL_DEFAULT_IMPORTANCE)
                 .setContentTitle(context.getText(R.string.notification_title))
-                .setContentText(context.getString(R.string.notification_message, (int)distance))
+                .setContentText(context.getString(R.string.notification_message, (int) distance))
                 .setSmallIcon(android.R.drawable.ic_menu_mylocation)
                 .setContentIntent(pendingIntent)
                 .build();
     }
 
-    public void send(float distance) {
-        Notification n = this.notifyDistance(distance);
+    public void notifyDistance(float distance) {
+        Notification n = this.createNotification(distance);
         NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
         notificationManager.notify(ARROUND_ID, n);
     }
