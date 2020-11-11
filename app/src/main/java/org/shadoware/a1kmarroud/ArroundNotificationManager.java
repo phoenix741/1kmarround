@@ -11,7 +11,7 @@ import android.os.Build;
 import androidx.core.app.NotificationCompat;
 
 class ArroundNotificationManager {
-    private static final String CHANNEL_DEFAULT_IMPORTANCE = "Running";
+    private static final String CHANNEL_DEFAULT_IMPORTANCE = "Distance";
     public static final int ARROUND_ID = 1;
     private final Context context;
 
@@ -26,8 +26,9 @@ class ArroundNotificationManager {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = context.getString(R.string.channel_name);
             String description = context.getString(R.string.channel_description);
-            NotificationChannel channel = new NotificationChannel(CHANNEL_DEFAULT_IMPORTANCE, name, NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationChannel channel = new NotificationChannel(CHANNEL_DEFAULT_IMPORTANCE, name, NotificationManager.IMPORTANCE_LOW);
             channel.setDescription(description);
+            channel.setSound(null, null);
             // Register the channel with the system; you can't change the importance
             // or other notification behaviors after this
             NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
@@ -45,6 +46,7 @@ class ArroundNotificationManager {
                 .setContentText(context.getString(R.string.notification_message, (int) distance))
                 .setSmallIcon(android.R.drawable.ic_menu_mylocation)
                 .setContentIntent(pendingIntent)
+                .setSound(null)
                 .build();
     }
 
