@@ -5,6 +5,9 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
+import android.media.AudioAttributes;
+import android.media.AudioFocusRequest;
+import android.media.AudioManager;
 import android.os.Binder;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,7 +20,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArroundService extends Service implements TextToSpeech.OnInitListener {
+public class ArroundService extends Service implements TextToSpeech.OnInitListener, AudioManager.OnAudioFocusChangeListener {
     private static final String TAG = "ArroundService";
 
     private ArroundNotificationManager notificationManager;
@@ -68,10 +71,12 @@ public class ArroundService extends Service implements TextToSpeech.OnInitListen
         wakeLock = powerService.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "ArroundService::lock");
         wakeLock.acquire();
 
-        Bundle extras = intent.getExtras();
-        Location location = (Location) extras.get("startLocation");
-        if (location != null) {
-            this.startLocation = location;
+        if (intent != null) {
+            Bundle extras = intent.getExtras();
+            Location location = (Location) extras.get("startLocation");
+            if (location != null) {
+                this.startLocation = location;
+            }
         }
 
         Notification notification = notificationManager.createNotification(0);
@@ -126,6 +131,11 @@ public class ArroundService extends Service implements TextToSpeech.OnInitListen
         }
     }
 
+    @Override
+    public void onAudioFocusChange(int focusChange) {
+
+    }
+
     private void speakDistance() {
         int distance = (int) getDistance();
         if (Math.abs(lastDistance - distance) > 100) {
@@ -139,14 +149,24 @@ public class ArroundService extends Service implements TextToSpeech.OnInitListen
             }
 
             String text = getString(stringId, distance);
+            speak(text);
 
+            lastDistance = distance;
+        }
+    }
+
+    private void speak(String text) {
+        AudioManager audioManager = (AudioManager) this.getSystemService(Context.AUDIO_SERVICE);
+        int res = audioManager.requestAudioFocus(this, AudioManager.STREAM_NOTIFICATION, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_MAY_DUCK);
+
+        if (res == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
             } else {
                 textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null);
             }
 
-            lastDistance = distance;
+            audioManager.abandonAudioFocus(this);
         }
     }
 
