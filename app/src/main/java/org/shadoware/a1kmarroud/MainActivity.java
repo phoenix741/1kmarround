@@ -7,11 +7,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +32,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements ArroundLocationManager.ArrroundLocationListener {
+    private static final String TAG = "MainActivity";
     private final int REQUEST_PERMISSIONS_REQUEST_CODE = 1;
     private FloatingActionButton goButton = null;
     private FloatingActionButton stopButton = null;
@@ -41,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements ArroundLocationMa
     ArroundLocationManager locationManager;
     Location startLocation;
     Location runLocation;
+
+
 
     ServiceConnection mConnection = new ServiceConnection() {
         @Override
@@ -60,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements ArroundLocationMa
             mServer.addListener(MainActivity.this);
 
             startLocation = mServer.getStartLocation();
+            goButton.setEnabled(startLocation != null);
             runLocation = mServer.getRunLocation();
 
             updateTextLocation();
@@ -83,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements ArroundLocationMa
             if (this.startLocation != null) {
                 startText.setText(getAddress(startLocation));
             } else {
-                startText.setText("");
+                startText.setText("... ... ...");
             }
             if (this.runLocation != null) {
                 locationText.setText(getAddress(runLocation));
@@ -106,6 +114,9 @@ public class MainActivity extends AppCompatActivity implements ArroundLocationMa
         locationManager.addListener((location) -> {
             if (!isMyServiceRunning(ArroundService.class)) {
                 startLocation = location;
+                runOnUiThread(() -> {
+                    goButton.setEnabled(startLocation != null);
+                });
             }
             MainActivity.this.updateTextLocation();
         });
@@ -116,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements ArroundLocationMa
         locationText = findViewById(R.id.location);
 
         goButton = findViewById(R.id.goButton);
+        goButton.setEnabled(false);
         stopButton = findViewById(R.id.stopButton);
         goButton.setOnClickListener(v -> {
             setStart(true);
@@ -125,6 +137,8 @@ public class MainActivity extends AppCompatActivity implements ArroundLocationMa
         });
         setStart(isMyServiceRunning(ArroundService.class));
         MainActivity.this.updateTextLocation();
+
+        Utils.startPowerSaverIntent(this);
     }
 
     @Override

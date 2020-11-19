@@ -17,4 +17,8 @@
     <string name="speaker_meters_info">%1$d meters.</string>
     <string name="speaker_meters_warn">Attention: %1$d meters.</string>
     <string name="speaker_meters_alert">Alert: %1$d meters. Your are out of the zone.</string>
+
+    <string name="dialog_powermanagement_dontshowagain">Do not show again</string>
+    <string name="dialog_powermanagement_explain">%1$s requires to be enabled in \'Protected Apps\' to function properly.</string>
+    <string name="dialog_powermanagement_ok">Go to settings</string>
 </resources>
