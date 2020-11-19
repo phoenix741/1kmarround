@@ -20,5 +20,5 @@
 
     <string name="dialog_powermanagement_dontshowagain">Do not show again</string>
     <string name="dialog_powermanagement_explain">%1$s requires to be enabled in \'Protected Apps\' to function properly.</string>
-    <string name="dialog_powermanagement_ok">Go to settings</string>
+    <string name="dialog_powermanagement_ok">Settings</string>
 </resources>

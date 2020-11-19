@@ -7,6 +7,9 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 import androidx.appcompat.widget.AppCompatCheckBox;
 
@@ -23,9 +26,10 @@ public class Utils {
             for (Intent intent : Constants.POWERMANAGER_INTENTS) {
                 if (isCallable(context, intent)) {
                     foundCorrectIntent = true;
-                    final AppCompatCheckBox dontShowAgain = new AppCompatCheckBox(context);
-                    dontShowAgain.setText(context.getString(R.string.dialog_powermanagement_dontshowagain));
-                    dontShowAgain.setOnCheckedChangeListener((buttonView, isChecked) -> {
+
+                    View checkBoxView = View.inflate(context, R.layout.powermanagement_dialog, null);
+                    CheckBox checkBox = (CheckBox) checkBoxView.findViewById(R.id.dotNotShowAgain);
+                    checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
                         editor.putBoolean("skipProtectedAppCheck", isChecked);
                         editor.apply();
                     });
@@ -33,7 +37,7 @@ public class Utils {
                     new AlertDialog.Builder(context)
                             .setTitle(Build.MANUFACTURER + " Protected Apps")
                             .setMessage(context.getString(R.string.dialog_powermanagement_explain, context.getString(R.string.app_name)))
-                            .setView(dontShowAgain)
+                            .setView(checkBoxView)
                             .setPositiveButton(context.getString(R.string.dialog_powermanagement_ok), (dialog, which) -> context.startActivity(intent))
                             .setNegativeButton(android.R.string.cancel, null)
                             .show();

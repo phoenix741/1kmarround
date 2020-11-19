@@ -15,5 +15,5 @@
     <string name="speaker_meters_alert">Alerte: %1$d metres. Vous êtes en dehors de la zone.</string>
     <string name="dialog_powermanagement_dontshowagain">Ne plus afficher</string>
     <string name="dialog_powermanagement_explain">Il est nécessaire d\'ajouter %1$s dans les applications protégées \'Protected Apps\' pour que celle-ci fonctionne correctement.</string>
-    <string name="dialog_powermanagement_ok">Go to settings</string>
+    <string name="dialog_powermanagement_ok">Paramètres</string>
 </resources>
